@@ -27,11 +27,13 @@ namespace Jagan.Login
                 {
 
                     //Evento para armazenar os dados e direcionar para o index
-                    Response.Write("<script>alert('Usuário autenticado corretamente!');</script>");
+                    Session.Add("Autenticação", true);
+                    Response.Redirect("/Painel");
 
                 }
                 else
                 {
+                    Session.Add("Autenticação", false);
                     Response.Write("<script>alert('Usuário inválido, verifique os dados e tente novamente.');</script>");
                 }
             }

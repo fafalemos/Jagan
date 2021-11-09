@@ -86,7 +86,10 @@
       <DependentUpon>Banco.edmx</DependentUpon>
       <LastGenOutput>Banco.cs</LastGenOutput>
     </Content>
+    <Content Include="JS\Index.jsx" />
     <Content Include="Login\default.aspx" />
+    <Content Include="Painel\default.aspx" />
+    <Content Include="Style\Index.css" />
     <Content Include="Style\login.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -116,6 +119,20 @@
     <Compile Include="Login\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Painel\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Painel\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Painel\Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Painel\Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +144,7 @@
       <DependentUpon>Banco.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <Content Include="Painel\Master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
