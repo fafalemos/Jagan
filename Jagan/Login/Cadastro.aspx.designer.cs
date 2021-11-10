@@ -11,7 +11,7 @@ namespace Jagan.Login
 {
 
 
-    public partial class deafult
+    public partial class Cadastro
     {
 
         /// <summary>
@@ -51,13 +51,13 @@ namespace Jagan.Login
         protected global::System.Web.UI.WebControls.TextBox txtSenha;
 
         /// <summary>
-        /// Controle btnLogin.
+        /// Controle txtEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
         /// Controle btnCadastrar.

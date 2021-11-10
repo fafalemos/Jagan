@@ -42,5 +42,10 @@ namespace Jagan.Login
                 Response.Write("Falha no sistema: " + ex.Message);
             }
         }
+
+        protected void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Login/Cadastro.aspx");
+        }
     }
 }
