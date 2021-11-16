@@ -1,14 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="Jagan.Login.Cadastro" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="produtos.aspx.cs" Inherits="Jagan.Painel.produtos" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="../Style/cadastro.css" rel="stylesheet" crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <title></title>
 </head>
 <body>
@@ -43,17 +41,24 @@
             </div>
         </nav>
 
-        <div class="cadastro">
-            <div>
-                <h1>Cadastro</h1>
-                <asp:TextBox ID="txtNomeUsuario" name="usuario" placeholder="Digite seu nome de usuário" runat="server" CssClass="campo"></asp:TextBox>
-                <asp:TextBox ID="txtSenha" name="senha" placeholder="Digite uma senha" runat="server" CssClass="campo"></asp:TextBox>
-                <asp:TextBox ID="txtEmail" placeholder="Digite seu email" runat="server" CssClass="campo"></asp:TextBox>
-                <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" OnClick="btnCadastrar_Click" CssClass="campo" />
-                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" CssClass="campo" />
+        <div class="container theme-showcase" role="main">
+            <div class="page-header">
+                <h1>Cursos</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="../Imagens/produto.jpg" alt="...">
+                        <div class="caption text-center">
+                            <a href=">">
+                                <h3>Produto</h3>
+                            </a>
+                            <p><a href="#" class="btn btn-primary" role="button">Comprar</a> </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </form>
 </body>
 </html>

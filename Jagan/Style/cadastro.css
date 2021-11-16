@@ -1,0 +1,24 @@
+﻿.cadastro {
+    backgroud-color: #b6ff00;
+    max-width: 500px;
+    width: 70%;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: -20%;
+    transform: translate(-50%, 50%);
+}
+
+.campo{
+    width:100%;
+    height: 45px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    margin: 5px 0;
+
+}
+h1 {
+    padding-left: 10px;
+    text-align: center;
+}
+
