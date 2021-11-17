@@ -92,9 +92,30 @@
     <Content Include="Login\default.aspx" />
     <Content Include="Painel\default.aspx" />
     <Content Include="Painel\produtos.aspx" />
-    <Content Include="Style\bootstrap.min.css" />
     <Content Include="Style\cadastro.css" />
+    <Content Include="Style\css\bootstrap-grid.css" />
+    <Content Include="Style\css\bootstrap-grid.min.css" />
+    <Content Include="Style\css\bootstrap-grid.rtl.css" />
+    <Content Include="Style\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Style\css\bootstrap-reboot.css" />
+    <Content Include="Style\css\bootstrap-reboot.min.css" />
+    <Content Include="Style\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Style\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Style\css\bootstrap-utilities.css" />
+    <Content Include="Style\css\bootstrap-utilities.min.css" />
+    <Content Include="Style\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Style\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Style\css\bootstrap.css" />
+    <Content Include="Style\css\bootstrap.min.css" />
+    <Content Include="Style\css\bootstrap.rtl.css" />
+    <Content Include="Style\css\bootstrap.rtl.min.css" />
     <Content Include="Style\Index.css" />
+    <Content Include="Style\js\bootstrap.bundle.js" />
+    <Content Include="Style\js\bootstrap.bundle.min.js" />
+    <Content Include="Style\js\bootstrap.esm.js" />
+    <Content Include="Style\js\bootstrap.esm.min.js" />
+    <Content Include="Style\js\bootstrap.js" />
+    <Content Include="Style\js\bootstrap.min.js" />
     <Content Include="Style\login.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -156,7 +177,28 @@
       <DependentUpon>Banco.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
-    <Content Include="Style\bootstrap.min.css.map" />
+    <Content Include="Style\css\bootstrap-grid.css.map" />
+    <Content Include="Style\css\bootstrap-grid.min.css.map" />
+    <Content Include="Style\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Style\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Style\css\bootstrap-reboot.css.map" />
+    <Content Include="Style\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Style\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Style\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Style\css\bootstrap-utilities.css.map" />
+    <Content Include="Style\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Style\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Style\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Style\css\bootstrap.css.map" />
+    <Content Include="Style\css\bootstrap.min.css.map" />
+    <Content Include="Style\css\bootstrap.rtl.css.map" />
+    <Content Include="Style\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Style\js\bootstrap.bundle.js.map" />
+    <Content Include="Style\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Style\js\bootstrap.esm.js.map" />
+    <Content Include="Style\js\bootstrap.esm.min.js.map" />
+    <Content Include="Style\js\bootstrap.js.map" />
+    <Content Include="Style\js\bootstrap.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

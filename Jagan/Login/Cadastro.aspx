@@ -50,7 +50,6 @@
                 <asp:TextBox ID="txtSenha" name="senha" placeholder="Digite uma senha" runat="server" CssClass="campo"></asp:TextBox>
                 <asp:TextBox ID="txtEmail" placeholder="Digite seu email" runat="server" CssClass="campo"></asp:TextBox>
                 <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" OnClick="btnCadastrar_Click" CssClass="campo" />
-                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" CssClass="campo" />
             </div>
         </div>
 
