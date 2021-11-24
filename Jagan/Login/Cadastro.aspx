@@ -15,9 +15,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <form id="form1" runat="server">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand">Jagan</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -27,18 +27,20 @@
                             <a class="nav-link active" aria-current="page" href="/Painel/default.aspx">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/produtos.aspx/">Produtos</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/produtos.cshtml">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disable" aria-current="page" href="#">Clientes</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.cshtml">Clientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/Login/Cadastro.aspx">Cadastre-se</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Login/default.aspx" />Login</a>
+                            <a class="nav-link active" aria-current="page" href="/Login/default.aspx">Login</a>
                         </li>
                     </ul>
+                    <span class="navbar-text">Usuário
+                    </span>
                 </div>
             </div>
         </nav>
@@ -47,9 +49,9 @@
             <div>
                 <h1>Cadastro</h1>
                 <asp:TextBox ID="txtNomeUsuario" name="usuario" placeholder="Digite seu nome de usuário" runat="server" CssClass="campo"></asp:TextBox>
-                <asp:TextBox ID="txtSenha" name="senha" placeholder="Digite uma senha" runat="server" CssClass="campo"></asp:TextBox>
+                <asp:TextBox ID="txtSenha" name="senha" TextMode="password" placeholder="Digite uma senha" runat="server" CssClass="campo"></asp:TextBox>
                 <asp:TextBox ID="txtEmail" placeholder="Digite seu email" runat="server" CssClass="campo"></asp:TextBox>
-                <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" OnClick="btnCadastrar_Click" CssClass="campo" />
+                <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" OnClick="btnCadastrar_Click" CssClass="btn btn-success campo" />
             </div>
         </div>
 
