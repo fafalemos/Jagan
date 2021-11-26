@@ -105,11 +105,14 @@
       <LastGenOutput>Banco.cs</LastGenOutput>
     </Content>
     <Content Include="Imagens\produto.jpg" />
+    <Content Include="Imagens\produtos.aspx" />
     <Content Include="JS\Index.jsx" />
     <Content Include="Login\Cadastro.aspx" />
     <Content Include="Login\default.aspx" />
+    <Content Include="Painel\addProduto.aspx" />
     <Content Include="Painel\clientes.aspx" />
     <Content Include="Painel\default.aspx" />
+    <Content Include="Painel\produto.aspx" />
     <Content Include="Painel\produtos.aspx" />
     <Content Include="Style\cadastro.css" />
     <Content Include="Style\css\bootstrap-grid.css" />
@@ -157,6 +160,13 @@
     <Compile Include="Banco de dados\usuarios.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
+    <Compile Include="Imagens\produtos.aspx.cs">
+      <DependentUpon>produtos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Imagens\produtos.aspx.designer.cs">
+      <DependentUpon>produtos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login\Cadastro.aspx.cs">
       <DependentUpon>Cadastro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +181,13 @@
     <Compile Include="Login\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Painel\addProduto.aspx.cs">
+      <DependentUpon>addProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Painel\addProduto.aspx.designer.cs">
+      <DependentUpon>addProduto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Painel\clientes.aspx.cs">
       <DependentUpon>clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -184,6 +201,13 @@
     </Compile>
     <Compile Include="Painel\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Painel\produto.aspx.cs">
+      <DependentUpon>produto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Painel\produto.aspx.designer.cs">
+      <DependentUpon>produto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Painel\produtos.aspx.cs">
       <DependentUpon>produtos.aspx</DependentUpon>
@@ -227,6 +251,7 @@
     <Content Include="Style\js\bootstrap.min.js.map" />
     <Content Include="Painel\clientes.cshtml" />
     <Content Include="Painel\produtos.cshtml" />
+    <Content Include="Painel\addProduto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

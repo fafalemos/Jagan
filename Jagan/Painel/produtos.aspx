@@ -34,7 +34,7 @@
                             <a class="nav-link active" aria-current="page" href="/Painel/default.aspx">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/produtos.aspx/">Produtos</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/produtos.cshtml">Produtos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/Painel/clientes.cshtml">Clientes</a>
@@ -43,7 +43,7 @@
                             <a class="nav-link active" aria-current="page" href="/Login/Cadastro.aspx">Cadastre-se</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Login/default.aspx" />Login</a>
+                            <a class="nav-link active" aria-current="page" href="/Login/default.aspx">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -88,7 +88,7 @@
                             <div class="card text-center bg-light">
                                 <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
                                 <div class="card-header">
-                                    R$ 4,50
+                                    <asp:Label runat="server" ID="precoProduto" Text="<%=nome_produto; %>"></asp:Label>
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Zoio</h5>
@@ -142,7 +142,7 @@
                                     <form>
                                         <button class="btn btn-danger">Adicionar ao carrinho</button>
                                     </form>
-                                    <small class="text-success">DOido</small>                                                                              
+                                    <small class="text-success">DOido</small>
                                 </div>
                             </div>
                         </div>
@@ -239,17 +239,23 @@
                                         <nav class="d-inline-block">
                                             <ul class="pagination pagination-sm my-0">
                                                 <li class="page-item">
-                                                    <button class="page-link">1</button></li>
+                                                    <button class="page-link">1</button>
+                                                </li>
                                                 <li class="page-item">
-                                                    <button class="page-link">2</button></li>
+                                                    <button class="page-link">2</button>
+                                                </li>
                                                 <li class="page-item">
-                                                    <button class="page-link">3</button></li>
+                                                    <button class="page-link">3</button>
+                                                </li>
                                                 <li class="page-item">
-                                                    <button class="page-link">4</button></li>
+                                                    <button class="page-link">4</button>
+                                                </li>
                                                 <li class="page-item">
-                                                    <button class="page-link">5</button></li>
+                                                    <button class="page-link">5</button>
+                                                </li>
                                                 <li class="page-item">
-                                                    <button class="page-link">6</button></li>
+                                                    <button class="page-link">6</button>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </form>
@@ -272,7 +278,7 @@
                         <a href="#" class="text-decoration-none text-dark">Politica de Privacidade</a>
                     </div>
                     <div class="col-12 col-md-4 text-center text-md-right">
-                        <a href="#" class="text-decoration-none text-dark">Administrar</a>
+                        <a href="../Painel/addProduto.aspx" class="text-decoration-none text-dark">Adicionar Produto</a>
                     </div>
                 </div>
             </div>

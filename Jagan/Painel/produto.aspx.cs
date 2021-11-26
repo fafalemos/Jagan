@@ -9,42 +9,53 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.OleDb;
 
-
-
 namespace Jagan.Painel
 {
-    public partial class produtos : System.Web.UI.Page
-    {
 
-        public string[] nome_produto { get { return nome_produto; } }
-        public int[] valor_produto;
+    public partial class produto : System.Web.UI.Page
+    {
+        int id;
+        public string nome;
+        public string[] nome_produto;
+        
+        public string[] valor_produto;
         protected void Page_Load(object sender, EventArgs e)
         {
+            nome = "José";
             try
             {
                 // Cria uma conexão com o banco de dados
                 String strSQL;
-                SqlDataAdapter da;
 
                 SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
                 conn.Open();
                 strSQL = "SELECT * FROM produtos";
+                SqlDataAdapter da;
                 DataSet ds = new DataSet();
 
                 da = new SqlDataAdapter(strSQL, conn);
                 DataTable dbtl = new DataTable();
 
                 da.Fill(dbtl);
+                SqlCommand cmd = new SqlCommand(strSQL, conn);
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader reader;
+
+                reader = cmd.ExecuteReader();
                 for (int i = 0; i < dbtl.Rows.Count; i++)
                 {
 
-                   nome_produto[i] = (string)@dbtl.Rows[i][1];
-                   valor_produto[i] = (int)@dbtl.Rows[i][2];
-                                    
-                                
-                }
+                   lblNome1.Text = @dbtl.Rows[0][1].ToString();
+                   lblPreco1.Text = @dbtl.Rows[0][2].ToString();
 
-}
+                   lblNome2.Text = @dbtl.Rows[1][1].ToString();
+                   lblPreco2.Text = @dbtl.Rows[1][2].ToString();
+
+                }
+                
+
+                
+            }
             catch (Exception ex)
             {
                 Response.Write("Falha no sistema: " + ex.Message);
@@ -52,5 +63,4 @@ namespace Jagan.Painel
 
         }
     }
-    
 }
