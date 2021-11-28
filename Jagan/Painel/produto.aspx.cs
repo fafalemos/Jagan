@@ -51,6 +51,21 @@ namespace Jagan.Painel
                    lblNome2.Text = @dbtl.Rows[1][1].ToString();
                    lblPreco2.Text = @dbtl.Rows[1][2].ToString();
 
+                   lblNome3.Text = @dbtl.Rows[2][1].ToString();
+                   lblPreco3.Text = @dbtl.Rows[2][2].ToString();
+
+                   lblNome4.Text = @dbtl.Rows[3][1].ToString();
+                   lblPreco4.Text = @dbtl.Rows[3][2].ToString();
+
+                   lblNome5.Text = @dbtl.Rows[4][1].ToString();
+                   lblPreco5.Text = @dbtl.Rows[4][2].ToString();
+
+                   lblNome6.Text = @dbtl.Rows[5][1].ToString();
+                   lblPreco6.Text = @dbtl.Rows[5][2].ToString();
+
+                   lblNome7.Text = @dbtl.Rows[6][1].ToString();
+                   lblPreco7.Text = @dbtl.Rows[6][2].ToString();
+
                 }
                 
 

@@ -113,7 +113,6 @@
     <Content Include="Painel\clientes.aspx" />
     <Content Include="Painel\default.aspx" />
     <Content Include="Painel\produto.aspx" />
-    <Content Include="Painel\produtos.aspx" />
     <Content Include="Style\cadastro.css" />
     <Content Include="Style\css\bootstrap-grid.css" />
     <Content Include="Style\css\bootstrap-grid.min.css" />
@@ -209,13 +208,6 @@
     <Compile Include="Painel\produto.aspx.designer.cs">
       <DependentUpon>produto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Painel\produtos.aspx.cs">
-      <DependentUpon>produtos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Painel\produtos.aspx.designer.cs">
-      <DependentUpon>produtos.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -250,7 +242,6 @@
     <Content Include="Style\js\bootstrap.js.map" />
     <Content Include="Style\js\bootstrap.min.js.map" />
     <Content Include="Painel\clientes.cshtml" />
-    <Content Include="Painel\produtos.cshtml" />
     <Content Include="Painel\addProduto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
