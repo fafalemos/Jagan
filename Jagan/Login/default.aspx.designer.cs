@@ -24,6 +24,15 @@ namespace Jagan.Login
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controle lblNomeUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomeUsuario;
+
+        /// <summary>
         /// Controle txtNomeUsuario.
         /// </summary>
         /// <remarks>

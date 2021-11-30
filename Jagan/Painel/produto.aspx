@@ -34,10 +34,10 @@
                             <a class="nav-link active" aria-current="page" href="/Painel/default.aspx">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/produtos.cshtml">Produtos</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/produto.aspx">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.cshtml">Clientes</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.aspx">Clientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/Login/Cadastro.aspx">Cadastre-se</a>
@@ -45,7 +45,13 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/Login/default.aspx">Login</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/Painel/carrinho.aspx">Carrinho</a>
+                        </li>
                     </ul>
+                    <span class="navbar-text">
+                        <asp:Label runat="server" ID="lblNomeUsuario" Text="<%# lblNomeUsuario%>"></asp:Label>
+                    </span>
                 </div>
             </div>
         </nav>
@@ -58,7 +64,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="../Imagens/gab.png" alt="First slide">
+                    <img class="d-block w-100" src="../Imagens/produtosestoquecar.png" alt="First slide">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="..." alt="Second slide">
@@ -86,7 +92,7 @@
                     <div class="row g-3">
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/laranja.png" class="card-img-top" />
                                 <div class="card-header">
                                     <asp:Label runat="server" ID="lblPreco1"></asp:Label>
                                 </div>
@@ -94,17 +100,17 @@
                                     <asp:Label runat="server" ID="lblNome1" CssClass="card-title"></asp:Label>
                                 </div>
                                 <div class="card-footer">
-                                    <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
-                                    </form>
-                                    
+                                    <div>
+                                        <asp:Button CssClass="btn btn-danger" ID="btn2" runat="server" OnClick="btnCarrinho_Click" Text="Add to carrinho" />
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/limao.jpg" class="card-img-top" />
                                 <div class="card-header">
                                     <asp:Label runat="server" ID="lblPreco2"></asp:Label>
                                 </div>
@@ -112,17 +118,17 @@
                                     <asp:Label runat="server" ID="lblNome2" CssClass="card-title"></asp:Label>
                                 </div>
                                 <div class="card-footer">
-                                    <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
-                                    </form>
-                               
+                                    <div>
+                                        <asp:Button runat="server" ID="btnProduto2" OnClick="btnProduto2_Click1" CssClass="btn btn-danger" Text="Add to carrinho"/>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/Abacaxi.png" class="card-img-top" />
                                 <div class="card-header">
                                     <asp:Label runat="server" ID="lblPreco3"></asp:Label>
                                 </div>
@@ -132,16 +138,16 @@
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                        <asp:Button CssClass="btn btn-danger" ID="btn3" runat="server" OnClick="btn3_Click" Text="Add to carrinho" />
                                     </form>
-                                   
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/uva.png" class="card-img-top" />
                                 <div class="card-header">
                                     <asp:Label runat="server" ID="lblPreco4" CssClass="card-title"></asp:Label>
                                 </div>
@@ -151,16 +157,16 @@
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                        <asp:Button CssClass="btn btn-danger" ID="btn4" runat="server" OnClick="btn4_Click" Text="Add to carrinho" />
                                     </form>
-                            
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/maca.png" class="card-img-top" />
                                 <div class="card-header">
                                     <asp:Label runat="server" ID="lblPreco5" CssClass="card-title"></asp:Label>
                                 </div>
@@ -170,16 +176,16 @@
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                       <asp:Button CssClass="btn btn-danger" ID="btn5" runat="server" OnClick="btn5_Click" Text="Add to carrinho" />
                                     </form>
-                                   
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/melancia.png" class="card-img-top" />
                                 <div class="card-header">
                                     <asp:Label runat="server" ID="lblPreco6" CssClass="card-title"></asp:Label>
                                 </div>
@@ -189,16 +195,16 @@
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                        <asp:Button CssClass="btn btn-danger" ID="btn6" runat="server" OnClick="btn6_Click" Text="Add to carrinho" />
                                     </form>
-                     
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/manga.png" class="card-img-top" />
                                 <div class="card-header">
                                     <asp:Label runat="server" ID="lblPreco7" CssClass="card-title"></asp:Label>
                                 </div>
@@ -208,12 +214,170 @@
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                       <asp:Button CssClass="btn btn-danger" ID="btn7" runat="server" OnClick="btn7_Click" Text="Add to carrinho" />
                                     </form>
-                             
+
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+                            <div class="card text-center bg-light">
+                                <img src="" class="card-img-top" />
+                                <div class="card-header">
+                                    <asp:Label runat="server" ID="Label1" CssClass="card-title"></asp:Label>
+                                </div>
+                                <div class="card-body">
+                                    <asp:Label runat="server" ID="Label2" CssClass="card-title"></asp:Label>
+
+                                </div>
+                                <div class="card-footer">
+                                    <form>
+                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+                            <div class="card text-center bg-light">
+                                <img src="" class="card-img-top" />
+                                <div class="card-header">
+                                    <asp:Label runat="server" ID="Label3" CssClass="card-title"></asp:Label>
+                                </div>
+                                <div class="card-body">
+                                    <asp:Label runat="server" ID="Label4" CssClass="card-title"></asp:Label>
+
+                                </div>
+                                <div class="card-footer">
+                                    <form>
+                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+                            <div class="card text-center bg-light">
+                                <img src="" class="card-img-top" />
+                                <div class="card-header">
+                                    <asp:Label runat="server" ID="Label5" CssClass="card-title"></asp:Label>
+                                </div>
+                                <div class="card-body">
+                                    <asp:Label runat="server" ID="Label6" CssClass="card-title"></asp:Label>
+
+                                </div>
+                                <div class="card-footer">
+                                    <form>
+                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+                            <div class="card text-center bg-light">
+                                <img src="" class="card-img-top" />
+                                <div class="card-header">
+                                    <asp:Label runat="server" ID="Label7" CssClass="card-title"></asp:Label>
+                                </div>
+                                <div class="card-body">
+                                    <asp:Label runat="server" ID="Label8" CssClass="card-title"></asp:Label>
+
+                                </div>
+                                <div class="card-footer">
+                                    <form>
+                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+                            <div class="card text-center bg-light">
+                                <img src="" class="card-img-top" />
+                                <div class="card-header">
+                                    <asp:Label runat="server" ID="Label9" CssClass="card-title"></asp:Label>
+                                </div>
+                                <div class="card-body">
+                                    <asp:Label runat="server" ID="Label10" CssClass="card-title"></asp:Label>
+
+                                </div>
+                                <div class="card-footer">
+                                    <form>
+                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-3" />
+
+                        <div class="row col-12 text-center my-5">
+
+                            <h1 class="display-4">Carrinho</h1>
+
+                            <div class="row justify-content-center mb-5">
+                                <div class="col-sm-12 col-md-10 col-lg-8">
+                                    <div class="row">
+
+                                <div class="row justify-content-center mb-5">
+                                    <div class="col-sm-12 col-md-10 col-lg-8">
+                                        <div class="row">
+                                            <asp:GridView ID="gvCarrinho" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" ShowFooter="true" ShowHeaderWhenEmpty="true"
+                                               
+                                                BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                                                <%-- Theme Properties --%>
+                                                <FooterStyle BackColor="White" ForeColor="#000066" />
+                                                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                                <RowStyle ForeColor="#000066" />
+                                                <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#00547E" />
+
+
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Nome">
+                                                        <ItemTemplate>
+                                                            <asp:Label Text='<%# Eval("nome_produto") %>' runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtNome_produto" Text='<%# Eval("nome_produto") %>' runat="server"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Preço">
+                                                        <ItemTemplate>
+                                                            <asp:Label Text='<%# Eval("valor_produto") %>' runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtValor_produto" Text='<%# Eval("valor_produto") %>' runat="server"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+                                                </Columns>
+                                            </asp:GridView>
+                                            <asp:Label runat="server" ID="lblTotal" CssClass="card-title"></asp:Label>
+                                            <asp:Button CssClass="btn btn-danger" ID="btnComprar" runat="server" OnClick="btnComprar_Click" Text="Comprar" />
+                                            <br />
+                                            <asp:Label ID="lblSuccessMessage" Text="" runat="server" ForeColor="Green" />
+                                            <br />
+                                            <asp:Label ID="lblErrorMessage" Text="" runat="server" ForeColor="Red" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <hr class="mt-3" />
                         <div class="row pb-4">
                             <div class="col-12">

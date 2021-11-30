@@ -30,7 +30,7 @@
                             <a class="nav-link active" aria-current="page" href="/Painel/produto.aspx">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.cshtml">Clientes</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.aspx">Clientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/Login/Cadastro.aspx">Cadastre-se</a>
@@ -39,7 +39,8 @@
                             <a class="nav-link active" aria-current="page" href="/Login/default.aspx">Login</a>
                         </li>
                     </ul>
-                    <span class="navbar-text">Usuário
+                    <span class="navbar-text">
+                        <asp:Label runat="server" ID="lblNomeUsuario" Text="<%# lblNomeUsuario%>"></asp:Label>
                     </span>
                 </div>
             </div>

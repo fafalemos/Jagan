@@ -17,7 +17,30 @@
 
     da.Fill(dbtl);
 
-}
+
+    void remover()
+    {
+        try
+        {
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            {
+                sqlCon.Open();
+                string query = "DELETE FROM usuasrios WHERE nome_usuario = @id";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.Parameters.AddWithValue("@id", Convert.ToInt32(gvProdutos.DataKeys[e.RowIndex].Value.ToString()));
+                sqlCmd.ExecuteNonQuery();
+                PopulatedGridView();
+                lblSuccessMessage.Text = "Selected Record Deleted";
+                lblErrorMessage.Text = "";
+            }
+        }
+        catch (Exception ex)
+        {
+            lblSuccessMessage.Text = "";
+            lblErrorMessage.Text = ex.Message;
+        }
+    }
+
 
 <!DOCTYPE html>
 <html>
@@ -56,13 +79,11 @@
                         <a class="nav-link active" aria-current="page" href="/Login/default.aspx">Login</a>
                     </li>
                 </ul>
-                <span class="navbar-text">
-                    Usuário
-                </span>
             </div>
         </div>
     </nav>
 
+       
 
     <main class="mb-5 pb-5 mb-md-0">
         <div class="container">
@@ -78,15 +99,19 @@
                                 <th>EMAIL</th>
 
                             </tr>
-                            @for (int i = 0; i < dbtl.Rows.Count; i++)
-                            {
-                                <tr>
-                                    <td>@dbtl.Rows[i][1]</td>
-                                    <td>@dbtl.Rows[i][3]</td>
-                                    <td><button class="btn btn-danger" onclick="" id="@i">Excluir</button></td>
-                                </tr>
-                            }
+                            @{
 
+
+                                for (int i = 0; i < dbtl.Rows.Count; i++)
+                                {
+                                    <tr>
+                                        <td>@dbtl.Rows[i][1]</td>
+                                        <td>@dbtl.Rows[i][3]</td>
+                                        <td><button class="btn btn-danger" onclick="" value="@i">Excluir</button></td>
+                                    </tr>
+                                }
+                            
+                            }
 
                         </table>
 
@@ -97,3 +122,4 @@
     </main>
 </body>
 </html>
+}

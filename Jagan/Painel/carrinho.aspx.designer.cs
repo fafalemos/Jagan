@@ -11,7 +11,7 @@ namespace Jagan.Painel
 {
 
 
-    public partial class clientes
+    public partial class carrinho
     {
 
         /// <summary>
@@ -24,30 +24,12 @@ namespace Jagan.Painel
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controle gvclientes.
+        /// Controle lblNomeUsuario.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvclientes;
-
-        /// <summary>
-        /// Controle lblSuccessMessage.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuccessMessage;
-
-        /// <summary>
-        /// Controle lblErrorMessage.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
+        protected global::System.Web.UI.WebControls.Label lblNomeUsuario;
     }
 }

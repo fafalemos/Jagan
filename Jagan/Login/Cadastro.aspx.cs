@@ -16,6 +16,10 @@ namespace Jagan.Login
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Name"] != null)
+            {
+                lblNomeUsuario.Text = Session["Name"].ToString().ToUpper();
+            }
 
         }
 
@@ -38,7 +42,6 @@ namespace Jagan.Login
 
                     //Executar o comando no SQL (Tecla F5 do SQL Server)
                     sqlCmd.ExecuteNonQuery();
-                    Response.Write("<script>alert('Usuário cadastrado com sucesso!');</script>");
                     limpar();
                 }
             }

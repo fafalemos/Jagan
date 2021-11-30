@@ -28,10 +28,10 @@
                             <a class="nav-link active" aria-current="page" href="/Painel/default.aspx">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/produtos.aspx">Produtos</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/produto.aspx">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.cshtml">Clientes</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.aspx">Clientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/Login/Cadastro.aspx">Cadastre-se</a>
@@ -40,7 +40,8 @@
                             <a class="nav-link active" aria-current="page" href="/Login/default.aspx">Login</a>
                         </li>
                     </ul>
-                    <span class="navbar-text">Usuário
+                    <span class="navbar-text">
+                    <asp:Label runat="server" ID="lblNomeUsuario" Text="<%# lblNomeUsuario%>"></asp:Label>
                     </span>
                 </div>
             </div>
@@ -54,7 +55,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="../Imagens/gab.png" alt="First slide">
+                    <img class="d-block w-100" src="../Imagens/produtosofertacar.png" alt="First slide">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="..." alt="Second slide">
@@ -82,126 +83,108 @@
                     <div class="row g-3">
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/maca.png" class="card-img-top" />
                                 <div class="card-header">
-                                    R$ 4,50
+                                    <asp:Label runat="server" ID="lblPreco1"></asp:Label>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Zoio</h5>
-                                    <p class="card-text truncate-3l">
-                                        zoiudim
-                                    </p>
+                                    <asp:Label runat="server" ID="lblNome1" CssClass="card-title"></asp:Label>
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                        <a class="btn btn-danger" href="produto.aspx">Conferir</a>
                                     </form>
-                                    <small class="text-success">DOido</small>
+                                    
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/limao.jpg" class="card-img-top" />
                                 <div class="card-header">
-                                    R$ 4,50
+                                    <asp:Label runat="server" ID="lblPreco2"></asp:Label>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Zoio</h5>
-                                    <p class="card-text truncate-3l">
-                                        zoiudim
-                                    </p>
+                                    <asp:Label runat="server" ID="lblNome2" CssClass="card-title"></asp:Label>
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                        <a class="btn btn-danger" href="produto.aspx">Conferir</a>
                                     </form>
-                                    <small class="text-success">DOido</small>
+                                    
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/uva.png" class="card-img-top" />
                                 <div class="card-header">
-                                    R$ 4,50
+                                    <asp:Label runat="server" ID="lblPreco3"></asp:Label>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Zoio</h5>
-                                    <p class="card-text truncate-3l">
-                                        zoiudim
-                                    </p>
+                                    <asp:Label runat="server" ID="lblNome3" CssClass="card-title"></asp:Label>
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                        <a class="btn btn-danger" href="produto.aspx">Conferir</a>
                                     </form>
-                                    <small class="text-success">DOido</small>
+                                    
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/Abacaxi.png" class="card-img-top" />
                                 <div class="card-header">
-                                    R$ 4,50
+                                    <asp:Label runat="server" ID="lblPreco4"></asp:Label>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Zoio</h5>
-                                    <p class="card-text truncate-3l">
-                                        zoiudim
-                                    </p>
+                                    <asp:Label runat="server" ID="lblNome4" CssClass="card-title"></asp:Label>
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                        <a class="btn btn-danger" href="produto.aspx">Conferir</a>
                                     </form>
-                                    <small class="text-success">DOido</small>
+                                    
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/laranja.png" class="card-img-top" />
                                 <div class="card-header">
-                                    R$ 4,50
+                                    <asp:Label runat="server" ID="lblPreco5"></asp:Label>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Zoio</h5>
-                                    <p class="card-text truncate-3l">
-                                        zoiudim
-                                    </p>
+                                    <asp:Label runat="server" ID="lblNome5" CssClass="card-title"></asp:Label>
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                        <a class="btn btn-danger" href="produto.aspx">Conferir</a>
                                     </form>
-                                    <small class="text-success">DOido</small>
+                                    
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                             <div class="card text-center bg-light">
-                                <img src="../Imagens/zoiera.jpeg" class="card-img-top" />
+                                <img src="../Imagens/manga.png" class="card-img-top" />
                                 <div class="card-header">
-                                    R$ 4,50
+                                    <asp:Label runat="server" ID="lblPreco6"></asp:Label>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Zoio</h5>
-                                    <p class="card-text truncate-3l">
-                                        zoiudim
-                                    </p>
+                                    <asp:Label runat="server" ID="lblNome6" CssClass="card-title"></asp:Label>
                                 </div>
                                 <div class="card-footer">
                                     <form>
-                                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                                       <a class="btn btn-danger" href="produto.aspx">Conferir</a>
                                     </form>
-                                    <small class="text-success">DOido</small>
+                                    
                                 </div>
                             </div>
                         </div>

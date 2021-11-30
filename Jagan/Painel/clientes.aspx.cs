@@ -27,34 +27,64 @@ namespace Jagan.Painel
         {
 
 
-            try {
-                SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+            if (!IsPostBack)
+            {
+                PopulatedGridView();
+            }
+
+        }
+
+        void PopulatedGridView()
+        {
+            using (SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            {
                 conn.Open();
-                strSQL = "SELECT * FROM usuarios";
-                DataSet ds = new DataSet();
-
-                da = new SqlDataAdapter(strSQL, conn);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM usuarios", conn);
                 DataTable dbtl = new DataTable();
-
-                da.Fill(dbtl);
-
-                for (int i = 0; i < dbtl.Rows.Count; i++)
+                sqlDa.Fill(dbtl);
+                if (dbtl.Rows.Count > 0)
                 {
 
-                    lblNome1.Text = (String)dbtl.Rows[i][1];
-                    lblEmail1.Text = (String)dbtl.Rows[i][3];
-
-                    
+                    gvclientes.DataSource = dbtl;
+                    gvclientes.DataBind();
+                }
+                else
+                {
+                    dbtl.Rows.Add(dbtl.NewRow());
+                    gvclientes.DataSource = dbtl;
+                    gvclientes.DataBind();
+                    gvclientes.Rows[0].Cells.Clear();
+                    gvclientes.Rows[0].Cells.Add(new TableCell());
+                    gvclientes.Rows[0].Cells[0].ColumnSpan = dbtl.Columns.Count;
+                    gvclientes.Rows[0].Cells[0].Text = "Nada encontrado ...";
+                    gvclientes.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
                 }
 
 
             }
+        }
+
+        protected void gvclientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+                {
+                    sqlCon.Open();
+                    string query = "DELETE FROM usuarios WHERE ID = @id";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@id", Convert.ToInt32(gvclientes.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    PopulatedGridView();
+                    lblSuccessMessage.Text = "Selected Record Deleted";
+                    lblErrorMessage.Text = "";
+                }
+            }
             catch (Exception ex)
             {
-
-                Response.Write("Falha no sistema: " + ex.Message); ;
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
             }
-
         }
     }
 }

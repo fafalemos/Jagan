@@ -13,11 +13,17 @@ namespace Jagan.Login
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Name"] != null)
+            {
+                lblNomeUsuario.Text = Session["Name"].ToString().ToUpper();
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            Session["Name"] = txtNomeUsuario.Text;
+
+
             DB_JAGAN db = new DB_JAGAN();
             try
             {

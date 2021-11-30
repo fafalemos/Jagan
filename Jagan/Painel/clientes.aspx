@@ -30,10 +30,10 @@
                             <a class="nav-link active" aria-current="page" href="/Painel/default.aspx">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/produtos.aspx/">Produtos</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/produto.aspx/">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.cshtml">Clientes</a>
+                            <a class="nav-link active" aria-current="page" href="/Painel/clientes.aspx">Clientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/Login/Cadastro.aspx">Cadastre-se</a>
@@ -53,45 +53,66 @@
                 <div class="row g-3">
                     <h1>Clientes</h1>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
-                        <div class="card text-center bg-light">
-                            <div class="card-header">
-                                <label asp-for="" class="card-text">Nome:</label>
-                                <asp:Label ID="lblNome1" runat="server" Text="<%#lblNome1%>"></asp:Label>
+                        <div class="row justify-content-center mb-5">
+                                    <div class="col-sm-12 col-md-10 col-lg-8">
+                                        <div class="row">
+                                            <asp:GridView ID="gvclientes" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" ShowFooter="true" ShowHeaderWhenEmpty="true" OnRowDeleting="gvclientes_RowDeleting"
+                                                
+                                                BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                                                <%-- Theme Properties --%>
+                                                <FooterStyle BackColor="White" ForeColor="#000066" />
+                                                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                                <RowStyle ForeColor="#000066" />
+                                                <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#00547E" />
+
+
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Nome">
+                                                        <ItemTemplate>
+                                                            <asp:Label Text='<%# Eval("nome_usuario") %>' runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtNome_usuario" Text='<%# Eval("nome_usuario") %>' runat="server"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Email">
+                                                        <ItemTemplate>
+                                                            <asp:Label Text='<%# Eval("email") %>' runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEmail" Text='<%# Eval("email") %>' runat="server"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+
+
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            
+                                                            <asp:ImageButton runat="server" ImageUrl="~/Imagens/delete.png" CommandName="Delete" ToolTip="Delete" Width="20px" Height="20px" />
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                           
+                                                            <asp:ImageButton runat="server" ImageUrl="~/Imagens/cancel.png" CommandName="Cancel" ToolTip="Cancel" Width="20px" Height="20px" />
+                                                        </EditItemTemplate>
+
+                                                    </asp:TemplateField>
+                                                </Columns>
+                                            </asp:GridView>
+                                            <br />
+                                            <asp:Label ID="lblSuccessMessage" Text="" runat="server" ForeColor="Green" />
+                                            <br />
+                                            <asp:Label ID="lblErrorMessage" Text="" runat="server" ForeColor="Red" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <label class="card-text">Email:</label>
-                                <asp:Label ID="lblEmail1" runat="server" Text="<%#lblEmail1%>" CssClass="card-title"></asp:Label>
-                            </div>
-                            <div class="card-footer">
-                                <form>
-                                    <button class="btn btn-danger">Remover Cliente</button>
-                                </form>
-                                <small class="text-success"></small>
-                            </div>
-                        </div>
                     </div>
-
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
-                        <div class="card text-center bg-light">
-                            <div class="card-header">
-                                <label class="card-text">Nome:</label>
-                                <asp:Label ID="lblNome2" runat="server" Text="<%#lblNome1%>"></asp:Label>
-                            </div>
-                            <div class="card-body">
-                                <label class="card-text">Email:</label>
-                                <asp:Label ID="lblEmail2" runat="server" Text="<%#lblEmail1%>" CssClass="card-title"></asp:Label>
-                            </div>
-                            <div class="card-footer">
-                                <form>
-                                    <button class="btn btn-danger">Remover Cliente</button>
-                                </form>
-                                <small class="text-success"></small>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
             </div>
         </main>
     </form>
