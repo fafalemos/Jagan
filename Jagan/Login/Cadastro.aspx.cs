@@ -6,13 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Jagan.Banco_de_dados;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Jagan.Login
 {
     public partial class Cadastro : System.Web.UI.Page
     {
         // Criar uma CONSTANTE para conexão com o banco de dados
-        readonly string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+        readonly string connectionString = @"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,14 +28,14 @@ namespace Jagan.Login
         {
             try {
                 // Cria uma conexão com o banco de dados
-                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
                 {
 
                     // Realiza a abertura de uma conexão com o banco de dados
                     sqlCon.Open();
 
                     // Cria uma instrução SQL para ser executada no servidor SQL Server
-                    SqlCommand sqlCmd = new SqlCommand("INSERT INTO usuarios VALUES (@nome_usuario, @senha, @email)", sqlCon);
+                    MySqlCommand sqlCmd = new MySqlCommand("INSERT INTO usuarios VALUES (@nome_usuario, @senha, @email)", sqlCon);
 
                     sqlCmd.Parameters.AddWithValue("@nome_usuario", txtNomeUsuario.Text);
                     sqlCmd.Parameters.AddWithValue("@senha", txtSenha.Text);

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Jagan.Banco_de_dados;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 namespace Jagan.Painel
 {
@@ -29,19 +29,19 @@ namespace Jagan.Painel
                 // Cria uma conexão com o banco de dados
                 String strSQL;
 
-                SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+                MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy");
                 conn.Open();
                 strSQL = "SELECT * FROM produtos ORDER BY valor_produto ASC";
-                SqlDataAdapter da;
+                MySqlDataAdapter da;
                 DataSet ds = new DataSet();
 
-                da = new SqlDataAdapter(strSQL, conn);
+                da = new MySqlDataAdapter(strSQL, conn);
                 DataTable dbtl = new DataTable();
 
                 da.Fill(dbtl);
-                SqlCommand cmd = new SqlCommand(strSQL, conn);
+                MySqlCommand cmd = new MySqlCommand(strSQL, conn);
                 cmd.CommandType = CommandType.Text;
-                SqlDataReader reader;
+                MySqlDataReader reader;
 
                 reader = cmd.ExecuteReader();
                 for (int i = 0; i < dbtl.Rows.Count; i++)

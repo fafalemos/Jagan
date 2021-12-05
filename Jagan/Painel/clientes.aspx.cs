@@ -8,6 +8,7 @@ using Jagan.Banco_de_dados;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 
 
@@ -15,10 +16,10 @@ namespace Jagan.Painel
 {
     public partial class clientes : System.Web.UI.Page
     {
-        SqlConnection conn;
-        SqlCommand com;
-        SqlDataAdapter da;
-        SqlDataReader dr;
+        MySqlConnection conn;
+        MySqlCommand com;
+        MySqlDataAdapter da;
+        MySqlDataReader dr;
 
         string strSQL;
         private object lblNome;
@@ -36,10 +37,10 @@ namespace Jagan.Painel
 
         void PopulatedGridView()
         {
-            using (SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            using (MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy"))
             {
                 conn.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM usuarios", conn);
+                MySqlDataAdapter sqlDa = new MySqlDataAdapter("SELECT * FROM usuarios", conn);
                 DataTable dbtl = new DataTable();
                 sqlDa.Fill(dbtl);
                 if (dbtl.Rows.Count > 0)
@@ -68,11 +69,11 @@ namespace Jagan.Painel
         {
             try
             {
-                using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+                using (MySqlConnection sqlCon = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy"))
                 {
                     sqlCon.Open();
                     string query = "DELETE FROM usuarios WHERE ID = @id";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    MySqlCommand sqlCmd = new MySqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@id", Convert.ToInt32(gvclientes.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
                     PopulatedGridView();

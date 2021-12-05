@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Jagan.Banco_de_dados;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Jagan.Login
 {

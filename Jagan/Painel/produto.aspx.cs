@@ -8,6 +8,7 @@ using Jagan.Banco_de_dados;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Configuration;
 
 namespace Jagan.Painel
@@ -19,7 +20,7 @@ namespace Jagan.Painel
         public int[] carrinhoproduto_preço = new int[10];
         public bool[] btn = new bool[10];
         public string nome;
-        readonly string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+        readonly string connectionString = @"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,20 +40,20 @@ namespace Jagan.Painel
                 // Cria uma conexão com o banco de dados
                 String strSQL;
 
-                SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+                MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy");
                 conn.Open();
 
                 strSQL = "SELECT * FROM produtos";
-                SqlDataAdapter da;
+                MySqlDataAdapter da;
                 DataSet ds = new DataSet();
 
-                da = new SqlDataAdapter(strSQL, conn);
+                da = new MySqlDataAdapter(strSQL, conn);
                 DataTable dbtl = new DataTable();
 
                 da.Fill(dbtl);
-                SqlCommand cmd = new SqlCommand(strSQL, conn);
+                MySqlCommand cmd = new MySqlCommand(strSQL, conn);
                 cmd.CommandType = CommandType.Text;
-                SqlDataReader reader;
+                MySqlDataReader reader;
 
                 reader = cmd.ExecuteReader();
                 for (int i = 0; i < dbtl.Rows.Count; i++)
@@ -95,9 +96,9 @@ namespace Jagan.Painel
 
         void calculototal()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+            MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy");
             conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
+            MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT SUM(valor_produto) FROM carrinho_produtos";
             lblTotal.Text = cmd.ExecuteScalar().ToString();
             conn.Close();
@@ -107,10 +108,10 @@ namespace Jagan.Painel
         {
             String strSQL;
 
-            SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+            MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy");
             conn.Open();
             string query = "truncate table carrinho_produtos";
-            SqlCommand cmd = new SqlCommand(query, conn);
+            MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.ExecuteNonQuery();
         }
 
@@ -118,11 +119,11 @@ namespace Jagan.Painel
         {
             
            
-            using (SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            using (MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy"))
             {
                 String strSQL;
                 conn.Open();          
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM carrinho_produtos", conn);
+                MySqlDataAdapter sqlDa = new MySqlDataAdapter("SELECT * FROM carrinho_produtos", conn);
                 DataTable dbtl = new DataTable();
                 sqlDa.Fill(dbtl);
                 if (dbtl.Rows.Count > 0)
@@ -157,14 +158,14 @@ namespace Jagan.Painel
             try
             {
                 // Cria uma conexão com o banco de dados
-                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
                 {
 
                     // Realiza a abertura de uma conexão com o banco de dados
                     sqlCon.Open();
 
                     // Cria uma instrução SQL para ser executada no servidor SQL Server
-                    SqlCommand sqlCmd = new SqlCommand("INSERT INTO carrinho_produtos VALUES (@nome_produto, @valor_produto)", sqlCon);
+                    MySqlCommand sqlCmd = new MySqlCommand("INSERT INTO carrinho_produtos VALUES (@nome_produto, @valor_produto)", sqlCon);
 
                     sqlCmd.Parameters.AddWithValue("@nome_produto", nome);
                     sqlCmd.Parameters.AddWithValue("@valor_produto", preco);

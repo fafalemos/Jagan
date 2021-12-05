@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Jagan.Banco_de_dados;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 namespace Jagan.Painel
 {
@@ -23,10 +23,10 @@ namespace Jagan.Painel
         }
         void PopulatedGridView()
         {
-            using (SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            using (MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy"))
             {
                 conn.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM produtos", conn);
+                MySqlDataAdapter sqlDa = new MySqlDataAdapter("SELECT * FROM produtos", conn);
                 DataTable dbtl = new DataTable();
                 sqlDa.Fill(dbtl);
                 if (dbtl.Rows.Count > 0)
@@ -55,10 +55,10 @@ namespace Jagan.Painel
         {
             try
             {
-                SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+                MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy");
                 conn.Open();
 
-                SqlCommand sqlCmd = new SqlCommand("INSERT INTO produtos VALUES (@nome_produto, @valor_produto)", conn);
+                MySqlCommand sqlCmd = new MySqlCommand("INSERT INTO produtos VALUES (@nome_produto, @valor_produto)", conn);
 
                 sqlCmd.Parameters.AddWithValue("@nome_produto", txtNomeProduto.Text);
                 sqlCmd.Parameters.AddWithValue("@valor_produto", txtValorProduto.Text);
@@ -95,11 +95,11 @@ namespace Jagan.Painel
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+                using (MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy"))
                 {
                     conn.Open();
                     string query = "UPDATE produtos SET nome_produto = @nome_produto,valor_produto = @valor_produto WHERE ID = @id";
-                    SqlCommand sqlCmd = new SqlCommand(query, conn);
+                    MySqlCommand sqlCmd = new MySqlCommand(query, conn);
                     sqlCmd.Parameters.AddWithValue("@nome_produto", (gvProdutos.Rows[e.RowIndex].FindControl("txtNome_produto") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@valor_produto", (gvProdutos.Rows[e.RowIndex].FindControl("txtValor_produto") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@id", Convert.ToInt32(gvProdutos.DataKeys[e.RowIndex].Value.ToString()));
@@ -127,11 +127,11 @@ namespace Jagan.Painel
         {
             try
             {
-                using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=JAGAN;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+                using (MySqlConnection conn = new MySqlConnection(@"Server = localhost; Database = JAGAN; Uid = Admin; Pwd = zj$yj1O!AMHhrQTy"))
                 {
-                    sqlCon.Open();
+                    conn.Open();
                     string query = "DELETE FROM produtos WHERE ID = @id";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    MySqlCommand sqlCmd = new MySqlCommand(query, conn);
                     sqlCmd.Parameters.AddWithValue("@id", Convert.ToInt32(gvProdutos.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
                     PopulatedGridView();
